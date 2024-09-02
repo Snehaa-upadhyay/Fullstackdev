@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, textarea {
+            margin-bottom: 10px;
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: auto;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Registration Form</h2>
+    
+  
+    <form action="submit_registration.php" method="POST">
+        <!-- First Name -->
+        <label for="first_name">First Name:</label><br>
+        <input type="text" id="first_name" name="first_name" required><br><br>
+        
+        <!-- Last Name -->
+        <label for="last_name">Last Name:</label><br>
+        <input type="text" id="last_name" name="last_name" required><br><br>
+        
+        <!-- Mobile Number -->
+        <label for="mobile_number">Mobile Number:</label><br>
+        <input type="tel" id="mobile_number" name="mobile_number" pattern="[0-9]{10}" required><br><br>
+        
+        <!-- Address -->
+        <label for="address">Address:</label><br>
+        <textarea id="address" name="address" rows="3" cols="50" required></textarea><br><br>
+
+         <!-- Date of Birth -->
+         <label for="dob">Date of Birth:</label><br>
+         <input type="date" id="dob" name="dob" required><br><br>
+
+          <!-- Gender -->
+        <label for="gender">Gender:</label><br>
+        <input type="radio" id="male" name="gender" value="Male" required>
+        <label for="male">Male</label><br>
+        <input type="radio" id="female" name="gender" value="Female" required>
+        <label for="female">Female</label><br>
+        <input type="radio" id="other" name="gender" value="Other" required>
+        <label for="other">Other</label><br><br>
+
+         
+         <!-- Email ID -->
+        <label for="email">Email ID:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <!-- Password -->
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+        
+        
+        
+       
+         <!-- Pin Code -->
+         <label for="pin_code">Pin Code:</label><br>
+         <input type="text" id="pin_code" name="pin_code" pattern="[0-9]{6}" required><br><br>
+         
+         <!-- State -->
+         <label for="state">State:</label><br>
+         <input type="text" id="state" name="state" required><br><br>
+         
+        
+        <!-- City -->
+        <label for="city">City:</label><br>
+        <input type="text" id="city" name="city" required><br><br>
+        
+       
+        <!-- State -->
+        <label for="state">State:</label><br>
+        <input type="text" id="state" name="state" required><br><br>
+        
+        <!-- Submit Button -->
+        <input type="submit" value="Register">
+
+         <!-- Link to Previous Assignment -->
+    <p>
+        If you wish to view the previous assignment, click 
+        <a href="Assignment2.html">here</a>.
+    </p>
+    </form>
+</body>
+</html>
