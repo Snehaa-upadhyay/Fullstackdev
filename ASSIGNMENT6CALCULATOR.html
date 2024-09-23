@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        table {
+            border: 1px solid rgba(253, 233, 233, 0.75);
+            margin-left: auto;
+            margin-right: auto;
+            
+        }
+
+        input[type="button"].number {
+            width: 100%;
+            padding: 20px 40px;
+            background-color: grey; /* Grey background for numbers */
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+        }
+
+        input[type="button"].operator {
+            width: 100%;
+            padding: 20px 40px;
+            background-color: #FFDB58; /* Mustard yellow background for operators */
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+        }
+
+        input[type="text"] {
+            padding: 20px 30px;
+            font-size: 24px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            border: 2px solid black;
+            width: 146%;
+            text-align: right;
+            box-sizing: border-box;
+        }
+        input[type="button"][value="="] {
+            width: 150%; /* Increase the width */
+            padding: 40px 40px; /* Increase the height */
+        }
+        input[type="button"][value="0"] {
+            width: 150%; /* Increase the width */
+            padding: 40px 60px; /* Increase the height */
+        }
+
+        .calculator-container {
+            width: 300px;
+            margin: 50px auto;
+        }
+        input[type="button"][value="."] {
+            width: 150%; /* Increase the width */
+            padding: 40px 40px; /* Increase the height */
+        }
+        
+    
+
+    </style>
+</head>
+<body>
+
+<div class="calculator-container">
+    <input type="text" id="display" value="0" readonly>
+    <table>
+
+        <tr>
+            <td><input type="button" class="operator" value="AC" onclick="clearDisplay()"></td>
+            <td><input type="button" class="number" value="%" onclick="appendNumber('%')"></td>
+            <td><input type="button" class="number" value="^" onclick="appendNumber('^')"></td>
+            <td><input type="button" class="operator" value="/" onclick="appendOperator('/')"></td>
+        </tr>
+        <tr>
+            <td><input type="button" class="number" value="7" onclick="appendNumber('7')"></td>
+            <td><input type="button" class="number" value="8" onclick="appendNumber('8')"></td>
+            <td><input type="button" class="number" value="9" onclick="appendNumber('9')"></td>
+            <td><input type="button" class="operator" value="*" onclick="appendOperator('*')"></td>
+        </tr>
+        <tr>
+            <td><input type="button" class="number" value="4" onclick="appendNumber('4')"></td>
+            <td><input type="button" class="number" value="5" onclick="appendNumber('5')"></td>
+            <td><input type="button" class="number" value="6" onclick="appendNumber('6')"></td>
+            <td><input type="button" class="operator" value="-" onclick="appendOperator('-')"></td>
+        </tr>
+        <tr>
+            <td><input type="button" class="number" value="1" onclick="appendNumber('1')"></td>
+            <td><input type="button" class="number" value="2" onclick="appendNumber('2')"></td>
+            <td><input type="button" class="number" value="3" onclick="appendNumber('3')"></td>
+            <td><input type="button" class="operator" value="+" onclick="appendOperator('=')"></td>
+        </tr>
+        <tr>
+            <td><input type="button" class="number" value="0" onclick="appendNumber('0')"></td>
+           
+            <td><input type="button" class="operator" value="=" onclick="calculateResult()"></td>
+            <td><input type="button" class="operator" value="." onclick="appendOperator('+')"></td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    function appendNumber(number) {
+        let display = document.getElementById("display");
+        // Replace "0" with the first number entered
+        if (display.value === "0") {
+            display.value = number;
+        } else {
+            display.value += number;
+        }
+    }
+
+    function appendOperator(operator) {
+        let display = document.getElementById("display");
+        display.value += operator;
+    }
+
+    function calculateResult() {
+        let expression = document.getElementById("display").value;
+        try {
+            document.getElementById("display").value = eval(expression);
+        } catch {
+            document.getElementById("display").value = "Error";
+        }
+    }
+
+    function clearDisplay() {
+        document.getElementById("display").value = "0";
+    }
+</script>
+
+</body>
+</html>
